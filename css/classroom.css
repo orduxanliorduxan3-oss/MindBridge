@@ -1,0 +1,577 @@
+/* MindBridge — Classroom, Assessments, Parent Guard & Certificate Styles
+   Clean, approachable, human, trustworthy EdTech aesthetic.
+*/
+
+/* 1. CLASSROOM LAYOUT */
+.classroom-container {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 1.25rem;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 24px;
+  padding: 1.5rem;
+  min-height: 720px;
+  box-shadow: var(--shadow-card);
+}
+
+.classroom-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.classroom-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 0.85rem 1.25rem;
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+}
+.room-info {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 0.9rem;
+}
+.room-info strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+.rec-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: #dc2626;
+  font-weight: 700;
+  background: #fee2e2;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+}
+.rec-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ef4444;
+  animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.8; }
+}
+
+/* Video Grid */
+.video-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 0.85rem;
+  height: 240px;
+}
+
+.video-tile {
+  background: #f1f3f5;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+.video-tile:hover {
+  border-color: #cbd5e1;
+}
+.teacher-tile {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+.teacher-tile .video-placeholder-avatar {
+  font-size: 4rem;
+}
+.video-placeholder-avatar {
+  font-size: 2.8rem;
+  opacity: 0.9;
+}
+.tile-overlay-bottom {
+  position: absolute;
+  bottom: 0.6rem;
+  left: 0.6rem;
+  right: 0.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.participant-name-tag {
+  background: rgba(24, 24, 27, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 3px 9px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+.voice-wave {
+  display: flex;
+  align-items: center;
+  gap: 2.5px;
+}
+.voice-wave span {
+  width: 3px;
+  height: 10px;
+  background: #2563eb;
+  border-radius: 2px;
+  animation: wave 1s infinite ease-in-out;
+}
+.voice-wave span:nth-child(2) { animation-delay: 0.2s; height: 16px; }
+.voice-wave span:nth-child(3) { animation-delay: 0.4s; height: 12px; }
+@keyframes wave {
+  0%, 100% { transform: scaleY(0.4); }
+  50% { transform: scaleY(1); }
+}
+
+.students-subgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+.cam-off .video-placeholder-avatar {
+  opacity: 0.2;
+}
+
+/* Whiteboard Area */
+.whiteboard-container {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+.whiteboard-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1rem;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e5e7eb;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.wb-tools-left, .wb-tools-right {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.wb-tool-btn {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  color: #4b5563;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.wb-tool-btn:hover {
+  color: #18181b;
+  border-color: #9ca3af;
+}
+.wb-tool-btn.active {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+}
+.color-swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.15);
+  transition: transform 0.12s;
+}
+.color-swatch:hover {
+  transform: scale(1.2);
+}
+
+#classroom-canvas {
+  width: 100%;
+  height: 380px;
+  background: #ffffff;
+  cursor: crosshair;
+}
+
+/* Classroom Controls Bar */
+.classroom-controls-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 0.85rem 1.25rem;
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+}
+.controls-group {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+/* Classroom Sidebar */
+.classroom-sidebar {
+  display: flex;
+  flex-direction: column;
+  background: #f8f9fa;
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.sidebar-header {
+  padding: 0.85rem 1.15rem;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sidebar-header h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #18181b;
+}
+.ai-safety-pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #2563eb;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+}
+
+.chat-messages-area {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 480px;
+}
+.chat-bubble {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.85rem;
+}
+.chat-bubble.teacher {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+.chat-author {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 2px;
+}
+.chat-bubble.teacher .chat-author {
+  color: #1d4ed8;
+}
+.chat-text {
+  color: #374151;
+  line-height: 1.45;
+}
+.chat-time {
+  font-size: 0.68rem;
+  color: #9ca3af;
+  float: right;
+  margin-top: 4px;
+}
+
+.chat-input-bar {
+  padding: 0.85rem;
+  background: #ffffff;
+  border-top: 1px solid var(--border-subtle);
+}
+.chat-input-bar form {
+  display: flex;
+  gap: 0.5rem;
+}
+.chat-input-bar input {
+  flex: 1;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  font-size: 0.88rem;
+  outline: none;
+  font-family: inherit;
+}
+.chat-input-bar input:focus {
+  border-color: #2563eb;
+}
+
+/* ========================================================
+   2. ASSESSMENTS (Quiz, Practical, Exam)
+   ======================================================== */
+.assessments-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.assessment-summary-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) auto;
+  gap: 1.25rem;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 1.4rem 1.8rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-card);
+  align-items: center;
+}
+.summary-metric {
+  display: flex;
+  flex-direction: column;
+}
+.summary-metric .sub {
+  font-size: 0.78rem;
+  color: #6b7280;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.summary-metric strong {
+  font-size: 1.25rem;
+  color: #18181b;
+  font-weight: 800;
+}
+
+.assessment-nav-tabs {
+  display: flex;
+  gap: 0.85rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.75rem;
+}
+.assessment-tab-btn {
+  background: #f4f4f5;
+  border: 1px solid #e4e4e7;
+  color: #52525b;
+  padding: 0.65rem 1.4rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+}
+.assessment-tab-btn.active {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.quiz-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 2.2rem;
+  box-shadow: var(--shadow-card);
+}
+.quiz-question-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #18181b;
+  margin-bottom: 1.5rem;
+}
+.quiz-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.8rem;
+}
+.quiz-opt-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: #f8f9fa;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 0.95rem 1.25rem;
+  font-size: 0.95rem;
+  color: #18181b;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: left;
+  font-family: inherit;
+}
+.quiz-opt-btn:hover {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+.quiz-opt-btn.selected {
+  background: #eff6ff;
+  border-color: #2563eb;
+  color: #1d4ed8;
+  font-weight: 700;
+}
+.quiz-opt-btn.correct {
+  background: #dcfce7;
+  border-color: #22c55e;
+  color: #15803d;
+}
+.quiz-opt-btn.wrong {
+  background: #fee2e2;
+  border-color: #ef4444;
+  color: #b91c1c;
+}
+
+/* ========================================================
+   3. PARENT GUARD DASHBOARD
+   ======================================================== */
+.parent-dash-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+  margin-bottom: 2rem;
+}
+.parent-info-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--shadow-card);
+}
+.parent-info-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #18181b;
+  margin-bottom: 1.2rem;
+}
+.safety-log-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid #f1f3f5;
+  font-size: 0.88rem;
+  color: #4b5563;
+}
+.safety-log-item:first-child {
+  border-top: none;
+}
+
+/* ========================================================
+   4. OFFICIAL CERTIFICATE
+   ======================================================== */
+.certificate-view-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.cert-actions-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.certificate-paper {
+  background: #ffffff;
+  border: 12px double #e2e8f0;
+  border-radius: 20px;
+  padding: 3.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-elevated);
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+.cert-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16rem;
+  opacity: 0.03;
+  pointer-events: none;
+  user-select: none;
+}
+.cert-header-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #18181b;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.4rem;
+}
+.cert-subtitle {
+  font-size: 1rem;
+  color: #6b7280;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.cert-recipient {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #2563eb;
+  margin-bottom: 1rem;
+  text-decoration: underline;
+  text-decoration-color: #bfdbfe;
+}
+.cert-course-name {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #18181b;
+  margin: 1rem 0;
+}
+.cert-meta-row {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+  font-size: 0.88rem;
+  color: #6b7280;
+}
+
+.verify-block {
+  background: #f8f9fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 2rem;
+}
+.verify-form {
+  display: flex;
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+.verify-form input {
+  flex: 1;
+  padding: 0.85rem 1.2rem;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  outline: none;
+  font-family: inherit;
+}
+.verify-form input:focus {
+  border-color: #2563eb;
+}
