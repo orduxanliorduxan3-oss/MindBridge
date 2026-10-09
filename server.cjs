@@ -89,7 +89,7 @@ function safeStaticPath(pathname) {
   return target.startsWith(ROOT + path.sep) ? target : null;
 }
 
-function createMindBridgeServer({apiKey='AQ.Ab8RN6JxlJcsw5gQjfiyNxpBH_3UuIR-EhOGmMOzmGYB4YCAKA' || '',model=MODEL,fetchImpl=fetch,rateLimit=12}={}) {
+function createMindBridgeServer({apiKey=process.env.GEMINI_API_KEY || 'AQ.Ab8RN6IVmCPZs0mFqbCrP56L5MclZrVn1rD-GA87d0QnR4BGiA',model=MODEL,fetchImpl=fetch,rateLimit=12}={}) {
   const attempts = new Map();
   return http.createServer(async (req,res) => {
     const pathname = new URL(req.url, 'http://localhost').pathname;
