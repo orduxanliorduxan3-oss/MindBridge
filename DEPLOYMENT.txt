@@ -1,0 +1,11 @@
+MindBridge private teammate deployment — 9 October 2026
+
+This archive includes a Gemini API key in the server-only .env file. Keep the archive private within the team. Anyone with a copy can read and use the key.
+
+Deployment: create a Node.js web service from the extracted project; run `node server.cjs`. The server uses the host's PORT automatically and accepts external connections when PORT is supplied. Open the deployed HTTPS URL and ask the AI Study Coach a real question to verify the integration.
+
+The bundled key generated a live answer with gemini-3.5-flash-lite on 9 October 2026. The gemini-flash-latest alias was temporarily overloaded during testing; the app keeps the verified default model. If the key later stops working, replace GEMINI_API_KEY in the host settings or .env and restart the server.
+
+For a long-lived deployment, put GEMINI_API_KEY in the host's secret/settings panel and remove .env from deployed files. The browser never receives the key through the app.
+
+See README.md for product details, demo limitations, and local run instructions.
