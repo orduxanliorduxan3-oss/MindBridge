@@ -10,8 +10,7 @@ Install Node.js 18 or newer. Double-click `start.bat`, or run:
 powershell -ExecutionPolicy Bypass -File .\server.ps1 -Port 5050
 ```
 
-Open http://127.0.0.1:5050/. Use `-NoBrowser` to start without opening a browser. No API key or package installation is needed. The AI coach runs inside the visitor's browser.
-
+Open http://mindbridgee.online. 
 ## Let teammates use the AI coach
 
 `127.0.0.1` means **this computer**. To let teammates use the same site on their own devices, deploy the project to an HTTPS web host and share its public URL. The project is static HTML/CSS/JavaScript; hosts that require a Node start command can use `node server.cjs`. If the host supplies `PORT`, the server listens on all interfaces automatically.
