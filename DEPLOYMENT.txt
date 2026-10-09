@@ -1,0 +1,7 @@
+MindBridge keyless deployment — 9 October 2026
+
+No API key is needed or included. Deploy these files as a static HTTPS website, or run `node server.cjs` on a Node web host. If the host sets PORT, the Node server listens on all interfaces automatically.
+
+The AI coach answers basic course questions with checked local guide content. Open-ended questions load the SmolLM2-135M-Instruct ONNX model in each visitor's browser via Transformers.js and generate on that device. The first model request downloads approximately 181 MB plus runtime files from Hugging Face/jsDelivr; allow those domains in host/browser network policy. Later requests can use the browser cache. A current browser, sufficient memory, and Internet for the first download are required. No question is sent to an AI API.
+
+The small local model can make mistakes and may be weak in Azerbaijani. This is a hackathon prototype, not a production tutor. See README.md and JURY_REVIEW.md for verified scope and limitations.
